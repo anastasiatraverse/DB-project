@@ -16,5 +16,5 @@ $pip install -r requirements.txt
 
 Secondly, when It successfully install, you should run next one:
 ```
-$python3 main.py
+$python main.py
 ```
