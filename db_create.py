@@ -1,10 +1,16 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import mysql.connector
 
 conn= mysql.connector.connect(host="localhost",
                               user="newuser",
                               passwd="password",
-                              database="budget")
+                              database="budget",
+                              use_unicode=True,
+                              charset='ascii'
+                              )
 cursor = conn.cursor()
+
 
 def check_db():
     db=list()
