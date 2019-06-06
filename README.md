@@ -23,5 +23,5 @@ If all are install good, you will see Tkinter window, else It will displayed err
 
 When It successfully install, you should run next one:
 ```
-$python main.py
+$python3 main.py
 ```
