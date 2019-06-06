@@ -2,9 +2,7 @@ from tkinter import *
 from db_insert_data import *
 from db_get_data import *
 from db_create import *
-from graphs import *
 import datetime
-from PIL import Image, ImageTk
 
 root = Tk()
 root.title("UCU student budget")
@@ -143,77 +141,6 @@ def new_incomes():
     Button(win, text="Вихід", command=win.destroy).grid(row=3, column=2, padx=(0, 100))
 
 
-def date_for_plot():
-    def get_value():
-        if v_month_from.get() and v_year_from.get() and v_day_from.get() and v_day_to.get() and \
-                v_month_to.get() and v_year_to.get() and v_category.get():
-            m_from = v_month_from.get()
-            d_from = v_day_from.get()
-            y_from = v_year_from.get()
-
-            m_to=v_month_to.get()
-            d_to = v_day_to.get()
-            y_to=v_year_to.get()
-
-            category=v_category.get()
-
-            date_from = [y_from, m_from, d_from]
-            date_to = [y_to, m_to, d_to]
-            value_for_graph(category, date_from, date_to)
-            display_plot()
-        else:
-            Label(win, text="Потрібно заповнити всі поля!").grid(row=9, column=1, columnspan=4)
-
-    win= Toplevel(root)
-    win.title("Введення дати")
-    v_month_from = StringVar()
-    v_day_from = StringVar()
-    v_year_from = StringVar()
-
-    v_month_to = StringVar()
-    v_day_to = StringVar()
-    v_year_to = StringVar()
-
-    v_category = StringVar()
-
-    Label(win, text="-- У полях слід вести дату у наступному вигляді:\n"
-                    "День 01\n"
-                    "Місяць 05\n"
-                    "Рік 2019").grid(row=1, column=1, columnspan=2)
-    Label(win, text="Період:").grid(row=2, column=1, columnspan=2)
-    Label(win, text="Від:").grid(row=3, column=1, columnspan=2)
-
-    Label(win, text="День: ").grid(row=4, column=1)
-    Entry(win, textvariable=v_day_from).grid(row=4, column=2)
-    Label(win, text="Місяць: ").grid(row=5, column=1)
-    Entry(win, textvariable=v_month_from).grid(row=5, column=2)
-    Label(win, text="Рік: ").grid(row=6, column=1)
-    Entry(win, textvariable = v_year_from).grid(row=6, column=2)
-
-
-    Label(win, text="До:").grid(row=3, column=3, columnspan=2)
-
-    Label(win, text="День: ").grid(row=4, column=3)
-    Entry(win, textvariable=v_day_to).grid(row=4, column=4)
-    Label(win, text="Місяць: ").grid(row=5, column=3)
-    Entry(win, textvariable=v_month_to).grid(row=5, column=4)
-    Label(win, text="Рік: ").grid(row=6, column=3)
-    Entry(win, textvariable=v_year_to).grid(row=6, column=4)
-
-    Label(win, text="Категорія: ").grid(row=7, column=1, columnspan=2)
-    Entry(win, textvariable=v_category).grid(row=7, column=2, columnspan=2)
-
-    Button(win, text="Далі", command=get_value).grid(row=8, column=1, columnspan=4)
-
-def display_plot():
-    win = Toplevel(root)
-    win.title('Відображення графіка')
-    image = Image.open("plot_categ.png")
-    photo = ImageTk.PhotoImage(image)
-    label = Label(image=photo)
-    label.image = photo  # keep a reference!
-    label.pack()
-    Button(win, text="Вихід", command=win.destroy()).pack()
 
 def display_stat():
     win = Toplevel(root)
@@ -246,9 +173,6 @@ Label(root, text=" - знаходження інформації витрат з
 
 Button(root, text="Статистика витрат", command=display_stat).grid(row=5, column=1)
 Label(root, text=" - відображення статистики за вибраними параметрами").grid(row=5, column=2)
-
-# Button(root, text="Графіки витрат", command=date_for_plot).grid(row=6, column=1)
-# Label(root, text=" - відображення графіків за вибраними параметрами").grid(row=6, column=2)
 
 Button(root, text="Вихід", command=root.destroy).grid(row=7, column=1)
 Label(root, text=" - вихід з програми").grid(row=7, column=2)
