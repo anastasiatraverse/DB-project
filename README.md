@@ -14,7 +14,7 @@ For Python 2.X:
 $pip install -r requirements.txt
 ```
 
-Secondly, you should install tkinter: 
+Secondly, you should install tkinter module 
 
 When It successfully install, you should run next one:
 ```
