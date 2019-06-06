@@ -21,7 +21,10 @@ To verifying your install, run from Python IDLE:
 ```
 If all are install good, you will see Tkinter window, else It will displayed error in the console;
 
-When It successfully install, you should run next one:
+
+
+When It successfully install, you should run next one, with your username and password;
+For example:
 ```
-$python3 main.py
+$python3 main.py root root
 ```
