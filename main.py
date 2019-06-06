@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 from tkinter import *
 from db_insert_data import *
 from db_get_data import *
