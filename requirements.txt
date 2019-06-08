@@ -1,0 +1,6 @@
+mysql
+mysql-connector
+mysqlclient
+syspath
+unicode
+docutils
